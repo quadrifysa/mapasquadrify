@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bc6ae43ca7b39419a5a7e499d278b049 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            background:white;color:#111827;font-family:Arial;font-size:12px;padding:8px;border-radius:8px;
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+        <div style="position:fixed;bottom:22px;left:22px;z-index:999999;
+            background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.10);
+            border-radius:14px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,0.14);
+            font-family:Arial;font-size:13px;line-height:1.6;color:#1f2937;">
+          <div style="font-weight:700;margin-bottom:6px;">Filiados por zona</div>
+          <span style="display:inline-block;width:13px;height:13px;background:#16a34a;border-radius:3px;margin-right:6px;"></span>Alta<br>
+          <span style="display:inline-block;width:13px;height:13px;background:#2563eb;border-radius:3px;margin-right:6px;"></span>Média-alta<br>
+          <span style="display:inline-block;width:13px;height:13px;background:#dc2626;border-radius:3px;margin-right:6px;"></span>Média-baixa<br>
+          <span style="display:inline-block;width:13px;height:13px;background:#111827;border-radius:3px;margin-right:6px;"></span>Baixa
+        </div>
+    <div style="position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:999999;background:rgba(255,255,255,0.97);border:1px solid rgba(0,0,0,0.10);border-radius:16px;padding:12px 20px;box-shadow:0 10px 28px rgba(0,0,0,0.16);font-family:Arial;text-align:center;"><div style="font-size:17px;font-weight:700;color:#0f172a;">Mapa de Filiados — PV</div><div style="font-size:13px;color:#334155;margin-top:3px;">CACHOEIRINHA/RS &bull; 2 zona(s) &bull; 233 filiados</div></div>
+    
+            <div class="folium-map" id="map_bc6ae43ca7b39419a5a7e499d278b049" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bc6ae43ca7b39419a5a7e499d278b049 = L.map(
+                "map_bc6ae43ca7b39419a5a7e499d278b049",
+                {
+                    center: [-29.917544297755192, -51.0953556306238],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_bc6ae43ca7b39419a5a7e499d278b049);
+
+            
+
+        
+    
+            var tile_layer_196a4de5dc36418d22488b2a4cce0176 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_196a4de5dc36418d22488b2a4cce0176.addTo(map_bc6ae43ca7b39419a5a7e499d278b049);
+        
+    
+        function geo_json_43a5d59aa7bc839f061a522de967c77f_styler(feature) {
+            switch(feature.id) {
+                case "0": 
+                    return {"color": "#111827", "fillColor": "#111827", "fillOpacity": 0.7, "weight": 1.3};
+                default:
+                    return {"color": "#111827", "fillColor": "#16a34a", "fillOpacity": 0.7, "weight": 1.3};
+            }
+        }
+        function geo_json_43a5d59aa7bc839f061a522de967c77f_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#000", "fillOpacity": 0.85, "weight": 3};
+            }
+        }
+
+        function geo_json_43a5d59aa7bc839f061a522de967c77f_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_43a5d59aa7bc839f061a522de967c77f.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_43a5d59aa7bc839f061a522de967c77f_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_43a5d59aa7bc839f061a522de967c77f = L.geoJson(null, {
+                onEachFeature: geo_json_43a5d59aa7bc839f061a522de967c77f_onEachFeature,
+            
+                style: geo_json_43a5d59aa7bc839f061a522de967c77f_styler,
+            ...{
+}
+        });
+
+        function geo_json_43a5d59aa7bc839f061a522de967c77f_add (data) {
+            geo_json_43a5d59aa7bc839f061a522de967c77f
+                .addData(data);
+        }
+            geo_json_43a5d59aa7bc839f061a522de967c77f_add({"bbox": [-51.12770209999996, -29.96571169999993, -51.062961199999954, -29.865796199999973], "features": [{"bbox": [-51.12309539999995, -29.927821799999943, -51.062961199999954, -29.865796199999973], "geometry": {"coordinates": [[[-51.085131399999966, -29.924890399999978], [-51.08656789999997, -29.924310399999964], [-51.08626889999994, -29.92112449999995], [-51.08701479999996, -29.921093099999947], [-51.086995699999925, -29.92069199999997], [-51.09030039999993, -29.92046249999993], [-51.09059539999998, -29.92345589999996], [-51.09227759999993, -29.921603599999965], [-51.09294489999995, -29.921648999999952], [-51.100573199999985, -29.91886989999995], [-51.097350899999974, -29.91193349999998], [-51.09664329999998, -29.909687199999958], [-51.09567329999993, -29.905090599999944], [-51.09590069999996, -29.902931599999935], [-51.096155199999934, -29.903398399999972], [-51.09700759999998, -29.90374289999994], [-51.098809099999976, -29.903931699999923], [-51.10035759999993, -29.905116999999965], [-51.103032499999976, -29.905295799999983], [-51.103072099999956, -29.905911699999933], [-51.104703799999974, -29.906781499999962], [-51.10622589999996, -29.908469199999963], [-51.106544399999954, -29.909437799999985], [-51.10955829999995, -29.910220299999924], [-51.109510199999924, -29.909229399999962], [-51.10645109999996, -29.908133699999947], [-51.10747339999995, -29.905699499999958], [-51.10601369999995, -29.902448999999923], [-51.12309539999995, -29.866394799999973], [-51.121813199999956, -29.865796199999973], [-51.11974379999997, -29.867482999999933], [-51.11610869999998, -29.86798059999995], [-51.11188739999994, -29.870248599999975], [-51.10791569999997, -29.870530499999973], [-51.105746099999976, -29.87233919999994], [-51.10394919999993, -29.871889599999967], [-51.10388809999995, -29.869774199999934], [-51.100782199999976, -29.868477499999983], [-51.097604499999925, -29.87246039999998], [-51.09467769999998, -29.873962299999953], [-51.09229919999996, -29.876532899999976], [-51.09161459999995, -29.878011099999988], [-51.09068829999995, -29.878563999999983], [-51.088080199999986, -29.879099699999976], [-51.08660289999995, -29.878535199999927], [-51.08577439999992, -29.87886729999997], [-51.08293849999994, -29.88148029999996], [-51.07798219999995, -29.88516029999993], [-51.07788729999999, -29.885451899999957], [-51.07854339999993, -29.885126699999933], [-51.08020199999999, -29.89064929999995], [-51.07448909999994, -29.88966589999994], [-51.073350499999954, -29.88751539999998], [-51.06587779999995, -29.89097229999993], [-51.066052799999966, -29.894409899999964], [-51.06555749999995, -29.895791099999943], [-51.06545299999992, -29.90000409999993], [-51.06403959999993, -29.904032099999935], [-51.062961199999954, -29.90564129999996], [-51.062997099999954, -29.90600899999998], [-51.06768399999999, -29.913309499999965], [-51.06828709999996, -29.915564899999943], [-51.07391549999994, -29.922972299999966], [-51.07436269999993, -29.92429389999995], [-51.07428579999998, -29.926085399999984], [-51.07469299999996, -29.927821799999943], [-51.07531989999995, -29.927416199999985], [-51.07699939999997, -29.923905699999988], [-51.07771519999994, -29.92372359999996], [-51.081062699999954, -29.924930899999943], [-51.08114809999995, -29.923357299999964], [-51.081767499999955, -29.924055199999945], [-51.08222399999994, -29.922809099999945], [-51.08170059999998, -29.922144699999937], [-51.08223069999997, -29.92162639999998], [-51.085131399999966, -29.924890399999978]], [[-51.06751459999998, -29.89881559999998], [-51.068358299999936, -29.896956499999924], [-51.06910789999995, -29.89729479999994], [-51.068147999999944, -29.898943999999968], [-51.06751459999998, -29.89881559999998]]], "type": "Polygon"}, "id": "0", "properties": {"FAIXA": "Baixa", "FILIADOS_TXT": "0", "LOCAIS": "nan", "NM_MUN": "CACHOEIRINHA", "NR_ZONA": 139, "QTD_LOCAIS": 17, "QTD_SETORES": 96, "QT_FILIADO": 0.0, "_d": 1607.539664818578}, "type": "Feature"}, {"bbox": [-51.12770209999996, -29.96571169999993, -51.07465089999994, -29.902931599999935], "geometry": {"coordinates": [[[-51.10772519999994, -29.963186599999965], [-51.10853459999998, -29.96107529999995], [-51.112784599999934, -29.95805139999993], [-51.11410009999998, -29.95769549999994], [-51.11575479999992, -29.95853549999998], [-51.120045999999945, -29.958045599999924], [-51.12064909999997, -29.957756599999982], [-51.12163989999992, -29.956557999999973], [-51.12497729999995, -29.954447199999954], [-51.12627499999996, -29.954229199999933], [-51.12735289999994, -29.954458199999976], [-51.126232699999946, -29.95266269999996], [-51.12770209999996, -29.94772819999997], [-51.12664999999997, -29.94500239999996], [-51.12652169999996, -29.94128619999998], [-51.12510899999995, -29.939247699999942], [-51.125974999999976, -29.93306039999993], [-51.12062959999997, -29.927860099999968], [-51.11755379999994, -29.92214579999995], [-51.114598799999946, -29.91921969999993], [-51.11376879999995, -29.916033599999935], [-51.10964389999998, -29.911986499999944], [-51.10955829999995, -29.910220299999924], [-51.106544399999954, -29.909437799999985], [-51.10622589999996, -29.908469199999963], [-51.104703799999974, -29.906781499999962], [-51.103072099999956, -29.905911699999933], [-51.103032499999976, -29.905295799999983], [-51.10035759999993, -29.905116999999965], [-51.098809099999976, -29.903931699999923], [-51.09700759999998, -29.90374289999994], [-51.096155199999934, -29.903398399999972], [-51.09590069999996, -29.902931599999935], [-51.09567329999993, -29.905090599999944], [-51.09664329999998, -29.909687199999958], [-51.097350899999974, -29.91193349999998], [-51.100573199999985, -29.91886989999995], [-51.09294489999995, -29.921648999999952], [-51.09227759999993, -29.921603599999965], [-51.09059539999998, -29.92345589999996], [-51.09030039999993, -29.92046249999993], [-51.086995699999925, -29.92069199999997], [-51.08701479999996, -29.921093099999947], [-51.08626889999994, -29.92112449999995], [-51.08656789999997, -29.924310399999964], [-51.085131399999966, -29.924890399999978], [-51.08223069999997, -29.92162639999998], [-51.08170059999998, -29.922144699999937], [-51.08222399999994, -29.922809099999945], [-51.081767499999955, -29.924055199999945], [-51.08114809999995, -29.923357299999964], [-51.081062699999954, -29.924930899999943], [-51.07771519999994, -29.92372359999996], [-51.07699939999997, -29.923905699999988], [-51.07531989999995, -29.927416199999985], [-51.07469299999996, -29.927821799999943], [-51.07652789999996, -29.931829099999955], [-51.07600629999995, -29.931750599999923], [-51.07579299999998, -29.93331809999995], [-51.07465089999994, -29.955201799999944], [-51.082142799999986, -29.956748399999984], [-51.08644319999996, -29.95824679999998], [-51.09106169999994, -29.960453899999948], [-51.09098119999992, -29.962982399999927], [-51.09306319999995, -29.96366819999997], [-51.09523379999995, -29.96571169999993], [-51.095300099999974, -29.96272899999997], [-51.098793999999934, -29.964473999999942], [-51.10171329999997, -29.964060999999965], [-51.10542999999996, -29.96501129999996], [-51.10659819999996, -29.964408199999976], [-51.10772519999994, -29.963186599999965]], [[-51.11973679999994, -29.934369499999946], [-51.11222429999998, -29.94429519999994], [-51.11242109999994, -29.944411899999974], [-51.11140659999995, -29.94592089999998], [-51.11082179999994, -29.947828699999945], [-51.10831269999994, -29.947354899999933], [-51.10745109999993, -29.948457099999935], [-51.10689169999995, -29.94814939999998], [-51.10609859999994, -29.949748299999946], [-51.10389189999995, -29.950063599999964], [-51.102050799999965, -29.93680629999994], [-51.10692449999992, -29.93616309999993], [-51.109173699999985, -29.93541469999997], [-51.11515219999994, -29.93589859999997], [-51.118128799999965, -29.934689299999956], [-51.11973679999994, -29.934369499999946]]], "type": "Polygon"}, "id": "1", "properties": {"FAIXA": "Alta", "FILIADOS_TXT": "233", "LOCAIS": "E. E. E. F. NEUSA GOULART BRIZOLA (CAIC DA GRANJA); E. E. E. M. FREDERICO AUGUSTO RITTER; E. E. E. M. GOV. ROBERTO SILVEIRA; E. E. E. M. GUIMAR\u00c3ES ROSA; E. E. E. M. LUIZ DE CAM\u00d5ES", "NM_MUN": "CACHOEIRINHA", "NR_ZONA": 143, "QTD_LOCAIS": 37, "QTD_SETORES": 130, "QT_FILIADO": 233.0, "_d": 2077.6076526290517}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_43a5d59aa7bc839f061a522de967c77f.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["NM_MUN", "NR_ZONA", "FILIADOS_TXT", "QTD_LOCAIS", "QTD_SETORES", "FAIXA"];
+    let aliases = ["Munic\u00edpio:", "Zona:", "Filiados:", "Locais:", "Setores:", "Faixa:"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": false,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_43a5d59aa7bc839f061a522de967c77f.addTo(map_bc6ae43ca7b39419a5a7e499d278b049);
+        
+    
+            map_bc6ae43ca7b39419a5a7e499d278b049.fitBounds(
+                [[-29.96571169999993, -51.12770209999996], [-29.865796199999973, -51.06295989999995]],
+                {}
+            );
+        
+</script>
+</html>
