@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c0e1ab560d6074b2c3840f9873a3dd35 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            background:white;color:#111827;font-family:Arial;font-size:12px;padding:8px;border-radius:8px;
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+        <div style="position:fixed;bottom:22px;left:22px;z-index:999999;
+            background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.10);
+            border-radius:14px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,0.14);
+            font-family:Arial;font-size:13px;line-height:1.6;color:#1f2937;">
+          <div style="font-weight:700;margin-bottom:6px;">Filiados por zona</div>
+          <span style="display:inline-block;width:13px;height:13px;background:#16a34a;border-radius:3px;margin-right:6px;"></span>Alta<br>
+          <span style="display:inline-block;width:13px;height:13px;background:#2563eb;border-radius:3px;margin-right:6px;"></span>Média-alta<br>
+          <span style="display:inline-block;width:13px;height:13px;background:#dc2626;border-radius:3px;margin-right:6px;"></span>Média-baixa<br>
+          <span style="display:inline-block;width:13px;height:13px;background:#111827;border-radius:3px;margin-right:6px;"></span>Baixa
+        </div>
+    <div style="position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:999999;background:rgba(255,255,255,0.97);border:1px solid rgba(0,0,0,0.10);border-radius:16px;padding:12px 20px;box-shadow:0 10px 28px rgba(0,0,0,0.16);font-family:Arial;text-align:center;"><div style="font-size:17px;font-weight:700;color:#0f172a;">Mapa de Filiados — PL</div><div style="font-size:13px;color:#334155;margin-top:3px;">POÁ/SP &bull; 1 zona(s) &bull; 613 filiados</div></div>
+    
+            <div class="folium-map" id="map_c0e1ab560d6074b2c3840f9873a3dd35" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c0e1ab560d6074b2c3840f9873a3dd35 = L.map(
+                "map_c0e1ab560d6074b2c3840f9873a3dd35",
+                {
+                    center: [-23.530423823018083, -46.34769651990666],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_c0e1ab560d6074b2c3840f9873a3dd35);
+
+            
+
+        
+    
+            var tile_layer_093309b66c1894a145185d4b640d0f1f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_093309b66c1894a145185d4b640d0f1f.addTo(map_c0e1ab560d6074b2c3840f9873a3dd35);
+        
+    
+        function geo_json_8149ac531c687c051a8ffedc7d4539e2_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#111827", "fillColor": "#16a34a", "fillOpacity": 0.7, "weight": 1.3};
+            }
+        }
+        function geo_json_8149ac531c687c051a8ffedc7d4539e2_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#000", "fillOpacity": 0.85, "weight": 3};
+            }
+        }
+
+        function geo_json_8149ac531c687c051a8ffedc7d4539e2_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_8149ac531c687c051a8ffedc7d4539e2.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_8149ac531c687c051a8ffedc7d4539e2_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_8149ac531c687c051a8ffedc7d4539e2 = L.geoJson(null, {
+                onEachFeature: geo_json_8149ac531c687c051a8ffedc7d4539e2_onEachFeature,
+            
+                style: geo_json_8149ac531c687c051a8ffedc7d4539e2_styler,
+            ...{
+}
+        });
+
+        function geo_json_8149ac531c687c051a8ffedc7d4539e2_add (data) {
+            geo_json_8149ac531c687c051a8ffedc7d4539e2
+                .addData(data);
+        }
+            geo_json_8149ac531c687c051a8ffedc7d4539e2_add({"bbox": [-46.368345699999956, -23.573511099999955, -46.32437259999995, -23.504812999999963], "features": [{"bbox": [-46.368345699999956, -23.573511099999955, -46.32437259999995, -23.504812999999963], "geometry": {"coordinates": [[[[-46.35668099999998, -23.53297199999997], [-46.35673589999993, -23.532613899999934], [-46.358036999999975, -23.53185499999995], [-46.359508999999946, -23.531698999999946], [-46.36031049999997, -23.53122299999995], [-46.36293379999995, -23.527821699999944], [-46.366950199999955, -23.52719129999997], [-46.368345699999956, -23.52474559999996], [-46.36833769999997, -23.51991499999997], [-46.36749439999994, -23.518713599999955], [-46.36691519999993, -23.51702959999994], [-46.36653329999995, -23.51485449999996], [-46.36679799999996, -23.513699999999975], [-46.36639569999994, -23.512155799999963], [-46.36539599999998, -23.511897999999967], [-46.35954499999996, -23.508306999999945], [-46.356672999999944, -23.50705999999997], [-46.35363399999994, -23.504812999999963], [-46.35078299999997, -23.507615999999924], [-46.34821499999998, -23.507933999999977], [-46.342352999999946, -23.507582999999947], [-46.336709399999954, -23.50667559999994], [-46.33675009999996, -23.506259899999982], [-46.329860899999964, -23.505704799999926], [-46.33006599999993, -23.50644499999993], [-46.329349999999984, -23.50788799999998], [-46.32854259999993, -23.50841039999995], [-46.32767659999996, -23.51076269999993], [-46.32721339999995, -23.510650199999926], [-46.32659609999996, -23.50947769999993], [-46.325729499999966, -23.509778899999958], [-46.326405999999956, -23.510586999999923], [-46.32631299999997, -23.51108199999993], [-46.32437259999995, -23.51184599999993], [-46.32586139999995, -23.512770999999926], [-46.32669099999998, -23.51478399999996], [-46.326277999999945, -23.51534899999996], [-46.324967999999956, -23.515645999999947], [-46.32650999999998, -23.516283999999928], [-46.32684199999994, -23.516839999999945], [-46.32791899999995, -23.51658799999996], [-46.32901799999996, -23.51799899999997], [-46.32934599999993, -23.519632999999935], [-46.32955839999993, -23.519792299999946], [-46.33120859999996, -23.51829809999998], [-46.331513299999976, -23.51763029999995], [-46.33717239999999, -23.519672199999945], [-46.33514319999994, -23.523796999999952], [-46.334199999999946, -23.524785099999963], [-46.33300459999998, -23.525382399999952], [-46.334478999999924, -23.52901399999996], [-46.33297229999994, -23.52953149999996], [-46.333474399999936, -23.53073979999994], [-46.33099939999993, -23.53159389999996], [-46.33129959999997, -23.532046499999975], [-46.33112529999993, -23.533260099999946], [-46.33157549999999, -23.534396399999927], [-46.332862899999945, -23.534401299999963], [-46.33289789999997, -23.535728599999977], [-46.33487589999999, -23.535158399999936], [-46.33506929999993, -23.536030599999954], [-46.33600849999993, -23.536148399999952], [-46.33808629999993, -23.53786079999998], [-46.33872049999997, -23.539500599999936], [-46.33761509999994, -23.539893199999945], [-46.33829119999996, -23.542133999999972], [-46.33630749999998, -23.54264239999998], [-46.33727699999997, -23.543450999999948], [-46.33822859999999, -23.544995499999967], [-46.34015069999998, -23.54572259999998], [-46.34127129999996, -23.54696209999997], [-46.34137569999996, -23.54798279999994], [-46.34110569999995, -23.548249799999954], [-46.34137839999994, -23.54852789999995], [-46.34067469999997, -23.549341199999958], [-46.341476499999935, -23.549998499999962], [-46.341151899999936, -23.550252799999953], [-46.34127049999994, -23.55175759999997], [-46.34206079999996, -23.553260599999934], [-46.34185699999995, -23.553826099999977], [-46.34249699999998, -23.55470299999996], [-46.34226679999994, -23.555447499999957], [-46.34250499999995, -23.555437499999975], [-46.34231939999995, -23.55582019999997], [-46.34270039999996, -23.55660009999997], [-46.342363199999966, -23.556826899999983], [-46.34300589999998, -23.55762549999997], [-46.34232499999996, -23.55770119999994], [-46.342332699999986, -23.558194599999975], [-46.34198839999993, -23.55823849999996], [-46.34241839999999, -23.558405799999946], [-46.34251779999993, -23.55868419999996], [-46.34223699999995, -23.55854699999998], [-46.34217019999994, -23.558908699999957], [-46.3425534, -23.55885669999998], [-46.34226279999996, -23.559033099999965], [-46.34271849999993, -23.559411899999922], [-46.34221029999997, -23.56015899999993], [-46.34273449999995, -23.56111149999998], [-46.34244289999997, -23.561463099999962], [-46.34300789999998, -23.56154729999997], [-46.34324139999995, -23.562931999999932], [-46.34416639999994, -23.56349219999993], [-46.34456899999997, -23.56545099999994], [-46.34529999999995, -23.566133999999977], [-46.34651089999995, -23.568404899999955], [-46.34742799999997, -23.568656999999966], [-46.34734109999994, -23.56914159999997], [-46.34762969999996, -23.569264299999926], [-46.347390799999964, -23.569405999999958], [-46.347905399999945, -23.569923999999958], [-46.34842259999994, -23.57158789999994], [-46.349335399999966, -23.572217999999957], [-46.34917369999993, -23.57262749999995], [-46.349651199999975, -23.57245719999997], [-46.34999109999995, -23.573511099999955], [-46.35102099999995, -23.57135699999998], [-46.35283159999993, -23.569720299999965], [-46.35324529999996, -23.568656199999957], [-46.35299309999994, -23.567375199999958], [-46.35352899999997, -23.56620899999996], [-46.354174999999934, -23.565706999999968], [-46.35771699999997, -23.565937999999957], [-46.35814799999997, -23.56539099999998], [-46.35685299999994, -23.563779999999955], [-46.356315999999936, -23.562233999999926], [-46.35375799999997, -23.55872499999998], [-46.35293499999996, -23.55696299999994], [-46.354539999999986, -23.555444999999956], [-46.35544499999996, -23.55343699999997], [-46.35666999999995, -23.552170999999927], [-46.35674599999993, -23.550681999999938], [-46.35631879999993, -23.54966579999996], [-46.35708699999997, -23.54891699999996], [-46.35585699999995, -23.54562999999996], [-46.35416399999996, -23.543533999999966], [-46.354743999999975, -23.53911279999994], [-46.354655799999925, -23.53756429999993], [-46.35519899999997, -23.53567099999998], [-46.35642499999994, -23.53289599999994], [-46.35668099999998, -23.53297199999997]], [[-46.351531099999924, -23.552107199999966], [-46.353612899999966, -23.555039599999926], [-46.35342369999995, -23.55515849999995], [-46.35216719999994, -23.555350099999945], [-46.35042239999996, -23.554623099999958], [-46.34918469999997, -23.55284429999995], [-46.34919619999994, -23.552547899999976], [-46.351531099999924, -23.552107199999966]]], [[[-46.331796599999954, -23.519382199999942], [-46.331408499999945, -23.51982469999996], [-46.33185349999997, -23.519997399999966], [-46.331602099999934, -23.520557599999965], [-46.333813099999986, -23.521987099999926], [-46.334345999999975, -23.521202499999955], [-46.33355479999993, -23.52043239999995], [-46.33362729999993, -23.51962309999993], [-46.33410309999994, -23.519283299999934], [-46.33328319999998, -23.518857999999966], [-46.33252759999993, -23.51955969999995], [-46.331796599999954, -23.519382199999942]]]], "type": "MultiPolygon"}, "id": "0", "properties": {"FAIXA": "Alta", "FILIADOS_TXT": "613", "LOCAIS": "CEP PROF JOSE ANTONIO BORTOLOZZO; EE BATUIRA; EE BENEDITA GARCIA DA CRUZ; EE BERTHA CORREA E CASTRO DA ROCHA; EE ELISEU JORGE", "NM_MUN": "PO\u00c1", "NR_ZONA": 219, "QTD_LOCAIS": 31, "QTD_SETORES": 216, "QT_FILIADO": 613, "_d": 1878.0093085966098}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_8149ac531c687c051a8ffedc7d4539e2.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["NM_MUN", "NR_ZONA", "FILIADOS_TXT", "QTD_LOCAIS", "QTD_SETORES", "FAIXA"];
+    let aliases = ["Munic\u00edpio:", "Zona:", "Filiados:", "Locais:", "Setores:", "Faixa:"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": false,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_8149ac531c687c051a8ffedc7d4539e2.addTo(map_c0e1ab560d6074b2c3840f9873a3dd35);
+        
+    
+            map_c0e1ab560d6074b2c3840f9873a3dd35.fitBounds(
+                [[-23.573511099999955, -46.36852449999997], [-23.504812999999963, -46.32437259999995]],
+                {}
+            );
+        
+</script>
+</html>
