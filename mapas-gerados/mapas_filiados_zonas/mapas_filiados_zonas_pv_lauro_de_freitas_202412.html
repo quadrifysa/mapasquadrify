@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c40282d532c7db1a12f1578c489e9a39 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            background:white;color:#111827;font-family:Arial;font-size:12px;padding:8px;border-radius:8px;
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+        <div style="position:fixed;bottom:22px;left:22px;z-index:999999;
+            background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.10);
+            border-radius:14px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,0.14);
+            font-family:Arial;font-size:13px;line-height:1.6;color:#1f2937;">
+          <div style="font-weight:700;margin-bottom:6px;">Filiados por zona</div>
+          <span style="display:inline-block;width:13px;height:13px;background:#16a34a;border-radius:3px;margin-right:6px;"></span>Alta<br>
+          <span style="display:inline-block;width:13px;height:13px;background:#2563eb;border-radius:3px;margin-right:6px;"></span>Média-alta<br>
+          <span style="display:inline-block;width:13px;height:13px;background:#dc2626;border-radius:3px;margin-right:6px;"></span>Média-baixa<br>
+          <span style="display:inline-block;width:13px;height:13px;background:#111827;border-radius:3px;margin-right:6px;"></span>Baixa
+        </div>
+    <div style="position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:999999;background:rgba(255,255,255,0.97);border:1px solid rgba(0,0,0,0.10);border-radius:16px;padding:12px 20px;box-shadow:0 10px 28px rgba(0,0,0,0.16);font-family:Arial;text-align:center;"><div style="font-size:17px;font-weight:700;color:#0f172a;">Mapa de Filiados — PV</div><div style="font-size:13px;color:#334155;margin-top:3px;">LAURO DE FREITAS/BA &bull; 1 zona(s) &bull; 293 filiados</div></div>
+    
+            <div class="folium-map" id="map_c40282d532c7db1a12f1578c489e9a39" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c40282d532c7db1a12f1578c489e9a39 = L.map(
+                "map_c40282d532c7db1a12f1578c489e9a39",
+                {
+                    center: [-12.863544233812155, -38.32721935722149],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_c40282d532c7db1a12f1578c489e9a39);
+
+            
+
+        
+    
+            var tile_layer_2c0f1eb2ed0535d1b6e4c608d5303f39 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_2c0f1eb2ed0535d1b6e4c608d5303f39.addTo(map_c40282d532c7db1a12f1578c489e9a39);
+        
+    
+        function geo_json_d0f80dc32d137d8360c78bf5b19cf43a_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#111827", "fillColor": "#16a34a", "fillOpacity": 0.7, "weight": 1.3};
+            }
+        }
+        function geo_json_d0f80dc32d137d8360c78bf5b19cf43a_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#000", "fillOpacity": 0.85, "weight": 3};
+            }
+        }
+
+        function geo_json_d0f80dc32d137d8360c78bf5b19cf43a_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_d0f80dc32d137d8360c78bf5b19cf43a.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_d0f80dc32d137d8360c78bf5b19cf43a_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_d0f80dc32d137d8360c78bf5b19cf43a = L.geoJson(null, {
+                onEachFeature: geo_json_d0f80dc32d137d8360c78bf5b19cf43a_onEachFeature,
+            
+                style: geo_json_d0f80dc32d137d8360c78bf5b19cf43a_styler,
+            ...{
+}
+        });
+
+        function geo_json_d0f80dc32d137d8360c78bf5b19cf43a_add (data) {
+            geo_json_d0f80dc32d137d8360c78bf5b19cf43a
+                .addData(data);
+        }
+            geo_json_d0f80dc32d137d8360c78bf5b19cf43a_add({"bbox": [-38.37397779999998, -12.91087289999996, -38.27520159999995, -12.809248599999933], "features": [{"bbox": [-38.37397779999998, -12.91087289999996, -38.27520159999995, -12.809248599999933], "geometry": {"coordinates": [[[-38.34581039999995, -12.90026729999994], [-38.354862999999966, -12.89466559999994], [-38.35508319999996, -12.87981549999995], [-38.35441949999995, -12.861156099999956], [-38.35218319999996, -12.85286699999995], [-38.35246609999996, -12.84655539999994], [-38.35344659999997, -12.839147199999962], [-38.35474489999996, -12.835601999999938], [-38.35875849999996, -12.831538599999934], [-38.36150669999995, -12.830374099999972], [-38.36696329999995, -12.82629919999994], [-38.37042239999994, -12.827090799999953], [-38.372170799999935, -12.82528489999993], [-38.37397499999997, -12.82429439999993], [-38.37397779999998, -12.820062599999972], [-38.37278909999997, -12.81835929999994], [-38.36984309999997, -12.817364799999952], [-38.36733019999997, -12.81757869999996], [-38.36657099999995, -12.81738089999993], [-38.36580099999998, -12.816140499999959], [-38.36269459999994, -12.814648699999958], [-38.361924699999975, -12.81492139999995], [-38.36071639999994, -12.816348999999947], [-38.359459899999926, -12.816439899999981], [-38.35836389999997, -12.815215499999969], [-38.35545529999996, -12.814124799999949], [-38.354754899999925, -12.812344299999952], [-38.35378709999997, -12.81222139999994], [-38.35311349999995, -12.81095419999997], [-38.351327699999956, -12.810756399999946], [-38.349311999999934, -12.809948999999957], [-38.34566019999994, -12.809248599999933], [-38.34501989999994, -12.809664199999927], [-38.34398209999994, -12.809629999999967], [-38.34222569999997, -12.811215299999962], [-38.34089129999995, -12.81007479999994], [-38.33967099999995, -12.812515499999963], [-38.33848689999996, -12.81209699999994], [-38.33774819999996, -12.812782899999949], [-38.33683359999998, -12.812976399999966], [-38.33495159999995, -12.811938699999931], [-38.33278829999994, -12.812044199999947], [-38.33227819999996, -12.81232559999995], [-38.331993599999976, -12.81405669999998], [-38.33243229999994, -12.81576249999995], [-38.33342169999997, -12.81700009999997], [-38.33301089999997, -12.818181899999958], [-38.33238959999994, -12.818493499999926], [-38.33047499999998, -12.818558199999929], [-38.32804799999996, -12.818012799999961], [-38.32648689999996, -12.818443599999968], [-38.326004699999935, -12.819816599999967], [-38.326031999999934, -12.822878299999957], [-38.32731659999996, -12.826412799999957], [-38.32629879999996, -12.829175999999958], [-38.327957699999956, -12.83198089999996], [-38.32690209999997, -12.83563119999997], [-38.32631599999996, -12.836047199999939], [-38.322309999999966, -12.835897699999983], [-38.320819799999974, -12.836311299999979], [-38.32009099999993, -12.83702269999998], [-38.320070399999956, -12.838101099999962], [-38.31873589999998, -12.839941499999954], [-38.31593449999996, -12.840090799999931], [-38.31384389999993, -12.83963309999996], [-38.31238889999997, -12.840116399999939], [-38.31213289999994, -12.84296849999993], [-38.31412249999994, -12.84801829999998], [-38.31335349999995, -12.85046899999998], [-38.31294479999996, -12.850833199999954], [-38.31078159999997, -12.85093189999998], [-38.30826079999997, -12.852177699999968], [-38.30765619999994, -12.852854599999938], [-38.30606679999993, -12.857059999999928], [-38.30537409999993, -12.857510399999972], [-38.30315789999997, -12.857539299999926], [-38.30274639999993, -12.858895099999932], [-38.30242679999998, -12.859085599999961], [-38.29880979999995, -12.85937169999994], [-38.29400989999993, -12.85749749999997], [-38.29279039999993, -12.85613739999997], [-38.29148069999997, -12.855351099999949], [-38.29023989999995, -12.855295499999954], [-38.28913949999998, -12.855727399999978], [-38.288748299999945, -12.856143899999948], [-38.28879829999993, -12.85727469999995], [-38.29010559999994, -12.85891329999993], [-38.29064849999997, -12.861280499999962], [-38.28931039999998, -12.864303699999939], [-38.29126489999993, -12.86909259999993], [-38.29096009999995, -12.87029199999995], [-38.288937099999934, -12.870947499999941], [-38.28684539999995, -12.87078529999997], [-38.285233099999964, -12.87038079999996], [-38.28468629999998, -12.86940519999996], [-38.28404859999995, -12.869212099999972], [-38.28218539999995, -12.86974629999997], [-38.28067569999996, -12.87069889999998], [-38.27849529999996, -12.870571099999948], [-38.27803299999993, -12.871022099999946], [-38.27756409999994, -12.873786599999958], [-38.27543459999998, -12.87447649999996], [-38.27520159999995, -12.875345699999972], [-38.27560749999997, -12.876007799999968], [-38.27759159999994, -12.87656989999994], [-38.27944789999997, -12.878471099999961], [-38.27983749999999, -12.878611299999932], [-38.28081379999998, -12.878231299999978], [-38.28203499999995, -12.87899999999996], [-38.28165899999993, -12.88028619999994], [-38.28110869999994, -12.88051079999997], [-38.28057949999993, -12.87955269999998], [-38.28016519999994, -12.880688599999928], [-38.28232979999996, -12.883668999999939], [-38.28254519999996, -12.885155899999969], [-38.28566659999996, -12.887781699999953], [-38.28983669999997, -12.892295199999976], [-38.29773429999995, -12.90276399999993], [-38.29811809999995, -12.902915799999962], [-38.29865389999998, -12.903714299999928], [-38.298510499999956, -12.90396159999995], [-38.30022799999995, -12.906228099999959], [-38.30220999999995, -12.908128999999969], [-38.30433269999996, -12.91087289999996], [-38.306210499999956, -12.908616999999937], [-38.30714659999995, -12.906971799999946], [-38.30554579999995, -12.906569799999941], [-38.30614179999998, -12.90386349999994], [-38.30894459999996, -12.904388199999968], [-38.309690099999955, -12.903965899999948], [-38.31618129999998, -12.905250899999938], [-38.316475699999955, -12.903171199999973], [-38.318607699999966, -12.901972199999927], [-38.32002189999997, -12.900209599999929], [-38.32259639999995, -12.900215399999977], [-38.32473769999996, -12.900865499999949], [-38.32670809999996, -12.898136999999956], [-38.32729809999994, -12.897812799999938], [-38.33152819999998, -12.901909299999941], [-38.33205789999994, -12.90338299999996], [-38.33324819999996, -12.90354559999997], [-38.33433799999995, -12.904124899999937], [-38.335481699999946, -12.903327799999937], [-38.33632879999993, -12.903564099999924], [-38.33876229999998, -12.90342299999998], [-38.33943539999995, -12.90595699999994], [-38.34096039999997, -12.90690679999994], [-38.34315119999997, -12.90444639999993], [-38.34354329999996, -12.90370199999995], [-38.34328169999997, -12.903532599999952], [-38.344038699999935, -12.902136599999947], [-38.34581039999995, -12.90026729999994]], [[-38.31417789999995, -12.894009699999971], [-38.31421489999996, -12.894575399999948], [-38.31375889999998, -12.894816699999978], [-38.31287739999992, -12.89446019999997], [-38.31336769999996, -12.893555899999965], [-38.31417789999995, -12.894009699999971]]], "type": "Polygon"}, "id": "0", "properties": {"FAIXA": "Alta", "FILIADOS_TXT": "293", "LOCAIS": "ANEXO KLEBER PACHECO; CAIC; CEEP TIC-CENTRO EST DE EDUCA\u00c7\u00c3O PROF EM TEC, INFORMA\u00c7\u00c3O E COMUNICA\u00c7\u00c3O; CENTRO EDUCACIONAL MUNICIPAL F\u00caNIX; COL\u00c9GIO AM\u00c9RICO SIMAS", "NM_MUN": "LAURO DE FREITAS", "NR_ZONA": 180, "QTD_LOCAIS": 53, "QTD_SETORES": 353, "QT_FILIADO": 293, "_d": 2483.453076263643}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_d0f80dc32d137d8360c78bf5b19cf43a.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["NM_MUN", "NR_ZONA", "FILIADOS_TXT", "QTD_LOCAIS", "QTD_SETORES", "FAIXA"];
+    let aliases = ["Munic\u00edpio:", "Zona:", "Filiados:", "Locais:", "Setores:", "Faixa:"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": false,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_d0f80dc32d137d8360c78bf5b19cf43a.addTo(map_c40282d532c7db1a12f1578c489e9a39);
+        
+    
+            map_c40282d532c7db1a12f1578c489e9a39.fitBounds(
+                [[-12.91087289999996, -38.37397779999998], [-12.809248599999933, -38.27520159999995]],
+                {}
+            );
+        
+</script>
+</html>
