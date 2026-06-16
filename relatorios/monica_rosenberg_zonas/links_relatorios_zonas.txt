@@ -1,0 +1,65 @@
+LINKS DOS RELATÓRIOS POR ZONA
+======================================================================
+
+Index mapa:
+https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/index.html
+
+Links por zona:
+zona 1	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_1.html
+zona 2	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_2.html
+zona 3	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_3.html
+zona 4	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_4.html
+zona 5	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_5.html
+zona 6	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_6.html
+zona 20	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_20.html
+zona 246	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_246.html
+zona 247	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_247.html
+zona 248	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_248.html
+zona 249	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_249.html
+zona 250	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_250.html
+zona 251	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_251.html
+zona 252	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_252.html
+zona 253	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_253.html
+zona 254	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_254.html
+zona 255	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_255.html
+zona 256	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_256.html
+zona 257	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_257.html
+zona 258	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_258.html
+zona 259	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_259.html
+zona 260	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_260.html
+zona 280	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_280.html
+zona 320	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_320.html
+zona 325	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_325.html
+zona 326	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_326.html
+zona 327	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_327.html
+zona 328	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_328.html
+zona 346	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_346.html
+zona 347	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_347.html
+zona 348	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_348.html
+zona 349	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_349.html
+zona 350	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_350.html
+zona 351	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_351.html
+zona 352	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_352.html
+zona 353	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_353.html
+zona 371	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_371.html
+zona 372	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_372.html
+zona 373	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_373.html
+zona 374	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_374.html
+zona 375	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_375.html
+zona 376	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_376.html
+zona 381	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_381.html
+zona 389	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_389.html
+zona 390	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_390.html
+zona 392	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_392.html
+zona 397	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_397.html
+zona 398	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_398.html
+zona 403	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_403.html
+zona 404	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_404.html
+zona 405	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_405.html
+zona 408	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_408.html
+zona 413	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_413.html
+zona 417	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_417.html
+zona 418	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_418.html
+zona 420	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_420.html
+zona 421	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_421.html
+zona 422	https://quadrifysa.github.io/mapasquadrify/relatorios/monica_rosenberg_zonas/relatorio_zona_422.html
