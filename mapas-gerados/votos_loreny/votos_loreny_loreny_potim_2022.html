@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c86cf50014be6b8549e02a7f05881502 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            background-color:white;color:#111827;font-family:Arial;font-size:12px;padding:8px;border-radius:8px;
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+        <div style="position:fixed;bottom:22px;left:22px;z-index:999999;
+            background:rgba(255,255,255,0.96);border:1px solid rgba(0,0,0,0.10);
+            border-radius:14px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,0.14);
+            font-family:Arial,sans-serif;font-size:13px;line-height:1.55;color:#1f2937;min-width:220px;">
+            <div style="font-weight:700;margin-bottom:8px;">Intensidade de votos</div>
+            <div style="display:flex;align-items:center;margin-bottom:4px;">
+                <span style="display:inline-block;width:14px;height:14px;background:#16a34a;
+                border-radius:4px;margin-right:8px;"></span>Verde = mais votos</div>
+            <div style="display:flex;align-items:center;margin-bottom:4px;">
+                <span style="display:inline-block;width:14px;height:14px;background:#2563eb;
+                border-radius:4px;margin-right:8px;"></span>Azul</div>
+            <div style="display:flex;align-items:center;margin-bottom:4px;">
+                <span style="display:inline-block;width:14px;height:14px;background:#c62828;
+                border-radius:4px;margin-right:8px;"></span>Vermelho</div>
+            <div style="display:flex;align-items:center;">
+                <span style="display:inline-block;width:14px;height:14px;background:#111111;
+                border-radius:4px;margin-right:8px;"></span>Preto = menos votos</div>
+        </div>
+    
+        <div style="position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:999999;
+            background:rgba(255,255,255,0.97);border:1px solid rgba(0,0,0,0.10);border-radius:16px;
+            padding:12px 18px;box-shadow:0 10px 28px rgba(0,0,0,0.16);font-family:Arial,sans-serif;
+            text-align:center;min-width:360px;max-width:78vw;">
+            <div style="font-size:18px;font-weight:700;color:#0f172a;margin-bottom:4px;">Mapa de Votos por Setor</div>
+            <div style="font-size:14px;color:#334155;margin-bottom:3px;"><strong>Candidato:</strong> LORENY MAYARA CAETANO ROBERTO</div>
+            <div style="font-size:13px;color:#475569;margin-bottom:3px;">
+                <strong>Município:</strong> potim &nbsp;|&nbsp; <strong>Ano:</strong> 2022
+            </div>
+            <div style="font-size:12px;color:#64748b;"><strong>Setores:</strong> 36</div>
+        </div>
+    
+            <div class="folium-map" id="map_c86cf50014be6b8549e02a7f05881502" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c86cf50014be6b8549e02a7f05881502 = L.map(
+                "map_c86cf50014be6b8549e02a7f05881502",
+                {
+                    center: [-22.834689858014272, -45.26429173498204],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": true,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d5c2e0b7aaf665b14c1f51c00e30e797 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d5c2e0b7aaf665b14c1f51c00e30e797.addTo(map_c86cf50014be6b8549e02a7f05881502);
+        
+    
+        function geo_json_86fdfae96139fbc5c098c76334ab7b87_styler(feature) {
+            switch(feature.properties.CD_setor) {
+                case 354075405000005: case 354075405000020: case 354075405000023: case 354075405000024: case 354075405000026: case 354075405000027: case 354075405000028: case 354075405000032: 
+                    return {"color": "#ffffff", "fillColor": "#16a34a", "fillOpacity": 0.86, "weight": 0.55};
+                case 354075405000006: case 354075405000007: case 354075405000019: case 354075405000043: case 354075405000044: case 354075405000049: 
+                    return {"color": "#ffffff", "fillColor": "#2563eb", "fillOpacity": 0.86, "weight": 0.55};
+                case 354075405000009: case 354075405000025: case 354075405000031: case 354075405000034: case 354075405000035: case 354075405000040: case 354075405000051: case 354075405000052: 
+                    return {"color": "#ffffff", "fillColor": "#c62828", "fillOpacity": 0.86, "weight": 0.55};
+                default:
+                    return {"color": "#ffffff", "fillColor": "#111111", "fillOpacity": 0.86, "weight": 0.55};
+            }
+        }
+        function geo_json_86fdfae96139fbc5c098c76334ab7b87_highlighter(feature) {
+            switch(feature.properties.CD_setor) {
+                case 354075405000005: case 354075405000020: case 354075405000023: case 354075405000024: case 354075405000026: case 354075405000027: case 354075405000028: case 354075405000032: 
+                    return {"color": "#111827", "fillColor": "#16a34a", "fillOpacity": 0.97, "weight": 1.25};
+                case 354075405000006: case 354075405000007: case 354075405000019: case 354075405000043: case 354075405000044: case 354075405000049: 
+                    return {"color": "#111827", "fillColor": "#2563eb", "fillOpacity": 0.97, "weight": 1.25};
+                case 354075405000009: case 354075405000025: case 354075405000031: case 354075405000034: case 354075405000035: case 354075405000040: case 354075405000051: case 354075405000052: 
+                    return {"color": "#111827", "fillColor": "#c62828", "fillOpacity": 0.97, "weight": 1.25};
+                default:
+                    return {"color": "#111827", "fillColor": "#111111", "fillOpacity": 0.97, "weight": 1.25};
+            }
+        }
+
+        function geo_json_86fdfae96139fbc5c098c76334ab7b87_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_86fdfae96139fbc5c098c76334ab7b87.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_86fdfae96139fbc5c098c76334ab7b87_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_86fdfae96139fbc5c098c76334ab7b87 = L.geoJson(null, {
+                smoothFactor: 0.35,
+                onEachFeature: geo_json_86fdfae96139fbc5c098c76334ab7b87_onEachFeature,
+            
+                style: geo_json_86fdfae96139fbc5c098c76334ab7b87_styler,
+            ...{
+}
+        });
+
+        function geo_json_86fdfae96139fbc5c098c76334ab7b87_add (data) {
+            geo_json_86fdfae96139fbc5c098c76334ab7b87
+                .addData(data);
+        }
+            geo_json_86fdfae96139fbc5c098c76334ab7b87_add({"features": [{"geometry": {"coordinates": [[[-45.2516, -22.83529], [-45.25173, -22.83589], [-45.25471, -22.83795], [-45.25571, -22.83677], [-45.25285, -22.83462], [-45.25208, -22.83467], [-45.2516, -22.83529]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000005, "COR": "#16a34a", "FAIXA_LABEL": "Verde | mais alta", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 55}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25149, -22.84126], [-45.25151, -22.84069], [-45.25082, -22.84072], [-45.25083, -22.84129], [-45.25149, -22.84126]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000006, "COR": "#2563eb", "FAIXA_LABEL": "Azul", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 41}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25471, -22.83795], [-45.2515, -22.84123], [-45.25151, -22.84191], [-45.25253, -22.84319], [-45.25412, -22.84016], [-45.2556, -22.83857], [-45.25471, -22.83795]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000007, "COR": "#2563eb", "FAIXA_LABEL": "Azul", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 41}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.26385, -22.83702], [-45.2629, -22.83786], [-45.26204, -22.83721], [-45.2592, -22.84025], [-45.26115, -22.84181], [-45.26502, -22.83754], [-45.26385, -22.83702]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000009, "COR": "#c62828", "FAIXA_LABEL": "Vermelho", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 33}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.32164, -22.83283], [-45.3222, -22.83223], [-45.32302, -22.83281], [-45.32422, -22.83129], [-45.32246, -22.83051], [-45.32114, -22.83247], [-45.32164, -22.83283]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000017, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 1}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.3222, -22.83223], [-45.32052, -22.83387], [-45.32132, -22.83509], [-45.32301, -22.83311], [-45.32382, -22.83367], [-45.32548, -22.8316], [-45.32422, -22.83129], [-45.32302, -22.83281], [-45.3222, -22.83223]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000018, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 0}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25256, -22.84317], [-45.25325, -22.84342], [-45.25653, -22.83916], [-45.2556, -22.83857], [-45.25412, -22.84016], [-45.25256, -22.84317]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000019, "COR": "#2563eb", "FAIXA_LABEL": "Azul", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 41}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.26048, -22.83671], [-45.25805, -22.83934], [-45.2592, -22.84025], [-45.26163, -22.83763], [-45.26048, -22.83671]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000020, "COR": "#16a34a", "FAIXA_LABEL": "Verde | mais alta", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 55}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25427, -22.8426], [-45.25472, -22.84294], [-45.25832, -22.83904], [-45.25779, -22.83868], [-45.25427, -22.8426]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000023, "COR": "#16a34a", "FAIXA_LABEL": "Verde | mais alta", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 55}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25729, -22.83835], [-45.25396, -22.84237], [-45.25427, -22.8426], [-45.25779, -22.83868], [-45.25729, -22.83835]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000024, "COR": "#16a34a", "FAIXA_LABEL": "Verde | mais alta", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 55}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25861, -22.83427], [-45.26036, -22.83551], [-45.25779, -22.83868], [-45.25832, -22.83904], [-45.26185, -22.83521], [-45.25939, -22.83345], [-45.25861, -22.83427]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000025, "COR": "#c62828", "FAIXA_LABEL": "Vermelho", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 33}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25762, -22.83532], [-45.25835, -22.83547], [-45.25818, -22.83578], [-45.25898, -22.83643], [-45.25729, -22.83835], [-45.25779, -22.83868], [-45.26036, -22.83551], [-45.25861, -22.83427], [-45.25762, -22.83532]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000026, "COR": "#16a34a", "FAIXA_LABEL": "Verde | mais alta", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 55}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25571, -22.83677], [-45.25796, -22.83756], [-45.25898, -22.83643], [-45.25818, -22.83578], [-45.25835, -22.83547], [-45.25762, -22.83532], [-45.2567, -22.83638], [-45.25632, -22.83607], [-45.25571, -22.83677]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000027, "COR": "#16a34a", "FAIXA_LABEL": "Verde | mais alta", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 55}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25471, -22.83795], [-45.25653, -22.83916], [-45.25796, -22.83756], [-45.25571, -22.83677], [-45.25471, -22.83795]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000028, "COR": "#16a34a", "FAIXA_LABEL": "Verde | mais alta", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 55}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25498, -22.83287], [-45.25362, -22.83456], [-45.25285, -22.83462], [-45.25516, -22.83636], [-45.25812, -22.83234], [-45.25876, -22.83319], [-45.25921, -22.8328], [-45.25703, -22.82981], [-45.25509, -22.83082], [-45.25476, -22.83152], [-45.25498, -22.83287]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000029, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 21}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25516, -22.83636], [-45.25571, -22.83677], [-45.25632, -22.83607], [-45.2567, -22.83638], [-45.25957, -22.83329], [-45.25921, -22.8328], [-45.25876, -22.83319], [-45.25812, -22.83234], [-45.25516, -22.83636]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000030, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 21}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25164, -22.84506], [-45.25283, -22.8437], [-45.25567, -22.84441], [-45.2592, -22.84025], [-45.25805, -22.83934], [-45.25472, -22.84294], [-45.25396, -22.84237], [-45.25325, -22.84342], [-45.25216, -22.84288], [-45.25102, -22.84444], [-45.25164, -22.84506]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000031, "COR": "#c62828", "FAIXA_LABEL": "Vermelho", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 25}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25567, -22.84441], [-45.25828, -22.8451], [-45.26115, -22.84181], [-45.2592, -22.84025], [-45.25567, -22.84441]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000032, "COR": "#16a34a", "FAIXA_LABEL": "Verde | mais alta", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 55}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.26048, -22.83671], [-45.26163, -22.83763], [-45.26204, -22.83721], [-45.2629, -22.83786], [-45.26385, -22.83702], [-45.26092, -22.83629], [-45.26048, -22.83671]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000034, "COR": "#c62828", "FAIXA_LABEL": "Vermelho", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 33}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.26221, -22.83478], [-45.26097, -22.8363], [-45.26424, -22.83696], [-45.26502, -22.83754], [-45.26543, -22.83708], [-45.26221, -22.83478]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000035, "COR": "#c62828", "FAIXA_LABEL": "Vermelho", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 33}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.27781, -22.82606], [-45.26873, -22.82626], [-45.27076, -22.82952], [-45.27106, -22.82927], [-45.27554, -22.83281], [-45.27781, -22.82606]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000037, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 12}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.29436, -22.82823], [-45.29119, -22.82654], [-45.2894, -22.82645], [-45.28814, -22.82865], [-45.29121, -22.83083], [-45.29436, -22.82823]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000038, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 12}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25724, -22.83009], [-45.25957, -22.83329], [-45.26292, -22.8307], [-45.26208, -22.82975], [-45.25925, -22.83182], [-45.2578, -22.82982], [-45.25724, -22.83009]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000040, "COR": "#c62828", "FAIXA_LABEL": "Vermelho", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 33}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25703, -22.82981], [-45.2578, -22.82982], [-45.25925, -22.83182], [-45.26208, -22.82975], [-45.26098, -22.8291], [-45.25843, -22.8292], [-45.25703, -22.82981]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000041, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 21}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.24863, -22.84167], [-45.25102, -22.84444], [-45.2522, -22.84284], [-45.25149, -22.84126], [-45.25083, -22.84129], [-45.25082, -22.84072], [-45.25151, -22.84069], [-45.25171, -22.84124], [-45.25371, -22.83907], [-45.25141, -22.83733], [-45.2516, -22.83529], [-45.25037, -22.83618], [-45.24863, -22.84167]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000043, "COR": "#2563eb", "FAIXA_LABEL": "Azul", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 41}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25179, -22.83592], [-45.25141, -22.83733], [-45.25371, -22.83907], [-45.25471, -22.83795], [-45.25179, -22.83592]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000044, "COR": "#2563eb", "FAIXA_LABEL": "Azul", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 41}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.34597, -22.78874], [-45.34516, -22.78904], [-45.34391, -22.78869], [-45.34334, -22.78935], [-45.34274, -22.7891], [-45.34234, -22.78978], [-45.33861, -22.78917], [-45.3351, -22.79163], [-45.33323, -22.79193], [-45.33307, -22.79301], [-45.33198, -22.79447], [-45.32927, -22.79694], [-45.32801, -22.79622], [-45.3261, -22.79626], [-45.32446, -22.79475], [-45.32302, -22.79489], [-45.32108, -22.79413], [-45.31985, -22.79488], [-45.31868, -22.795], [-45.31609, -22.79672], [-45.31496, -22.79673], [-45.31407, -22.7973], [-45.31229, -22.79677], [-45.31155, -22.79707], [-45.30599, -22.80088], [-45.30102, -22.80275], [-45.29961, -22.80468], [-45.29794, -22.80565], [-45.29778, -22.80614], [-45.29891, -22.81082], [-45.29753, -22.81445], [-45.29835, -22.81502], [-45.2982, -22.81612], [-45.29895, -22.81663], [-45.29902, -22.81734], [-45.3, -22.81759], [-45.30014, -22.81833], [-45.30211, -22.82073], [-45.30185, -22.82231], [-45.30038, -22.82354], [-45.29982, -22.82315], [-45.29941, -22.82424], [-45.29887, -22.82393], [-45.29802, -22.82466], [-45.29724, -22.82432], [-45.296, -22.82472], [-45.2959, -22.8255], [-45.29508, -22.82607], [-45.29436, -22.82823], [-45.29683, -22.82948], [-45.29949, -22.82943], [-45.30336, -22.82733], [-45.30493, -22.82733], [-45.30702, -22.8284], [-45.31044, -22.82866], [-45.31257, -22.83131], [-45.3154, -22.83263], [-45.32281, -22.83057], [-45.32461, -22.8315], [-45.3262, -22.83161], [-45.32736, -22.83247], [-45.32802, -22.8337], [-45.32993, -22.83401], [-45.3322, -22.83531], [-45.3339, -22.83469], [-45.33505, -22.83349], [-45.33763, -22.82804], [-45.33859, -22.82797], [-45.34021, -22.82929], [-45.34151, -22.82896], [-45.34188, -22.82732], [-45.34041, -22.82353], [-45.34179, -22.82048], [-45.34115, -22.81936], [-45.33891, -22.81817], [-45.34095, -22.81691], [-45.34067, -22.81547], [-45.34218, -22.81297], [-45.34143, -22.81158], [-45.34303, -22.81167], [-45.34522, -22.81292], [-45.3452, -22.81497], [-45.34558, -22.81545], [-45.34665, -22.81565], [-45.3491, -22.81511], [-45.3499, -22.81417], [-45.34988, -22.81015], [-45.35177, -22.80806], [-45.35193, -22.80626], [-45.35388, -22.8046], [-45.356, -22.80538], [-45.35729, -22.80512], [-45.35893, -22.80372], [-45.36056, -22.80338], [-45.36104, -22.80066], [-45.36226, -22.80036], [-45.36395, -22.80072], [-45.36445, -22.80021], [-45.36388, -22.79804], [-45.358, -22.79493], [-45.3566, -22.79333], [-45.35337, -22.79307], [-45.35043, -22.79074], [-45.34677, -22.79007], [-45.34597, -22.78874]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000046, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 1}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.24762, -22.81738], [-45.24545, -22.81864], [-45.24644, -22.82319], [-45.24799, -22.82517], [-45.25761, -22.81801], [-45.25695, -22.81628], [-45.25589, -22.81629], [-45.25404, -22.81687], [-45.25146, -22.81676], [-45.25047, -22.81742], [-45.24865, -22.81771], [-45.24762, -22.81738]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000047, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 21}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.247, -22.8355], [-45.24979, -22.83795], [-45.25037, -22.83618], [-45.2516, -22.83529], [-45.25112, -22.83437], [-45.25023, -22.83429], [-45.24877, -22.8333], [-45.247, -22.8355]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000049, "COR": "#2563eb", "FAIXA_LABEL": "Azul", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 41}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.247, -22.8355], [-45.24877, -22.8333], [-45.2469, -22.83191], [-45.24512, -22.83395], [-45.247, -22.8355]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000050, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 21}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.25957, -22.83329], [-45.26185, -22.83521], [-45.26221, -22.83478], [-45.2646, -22.8365], [-45.26514, -22.83582], [-45.26063, -22.83252], [-45.25957, -22.83329]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000051, "COR": "#c62828", "FAIXA_LABEL": "Vermelho", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 33}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.26457, -22.82901], [-45.26063, -22.83252], [-45.26514, -22.83582], [-45.26864, -22.83271], [-45.2701, -22.83104], [-45.27079, -22.82935], [-45.26873, -22.82626], [-45.26754, -22.82739], [-45.26457, -22.82901]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000052, "COR": "#c62828", "FAIXA_LABEL": "Vermelho", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 33}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.2469, -22.83191], [-45.24877, -22.8333], [-45.25068, -22.8311], [-45.24889, -22.82974], [-45.2469, -22.83191]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000053, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 21}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.24877, -22.8333], [-45.25023, -22.83429], [-45.25112, -22.83437], [-45.2516, -22.83529], [-45.25216, -22.83463], [-45.25362, -22.83456], [-45.25433, -22.8337], [-45.25068, -22.8311], [-45.24877, -22.8333]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000054, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 21}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.26543, -22.83708], [-45.25828, -22.8451], [-45.25283, -22.8437], [-45.25164, -22.84506], [-45.25213, -22.84564], [-45.252, -22.84626], [-45.24904, -22.84848], [-45.24769, -22.85051], [-45.2474, -22.85228], [-45.24832, -22.85401], [-45.2527, -22.85758], [-45.25475, -22.85775], [-45.25827, -22.85681], [-45.26174, -22.85465], [-45.2662, -22.84991], [-45.26975, -22.84904], [-45.27615, -22.85058], [-45.27973, -22.85274], [-45.28623, -22.8523], [-45.28908, -22.8507], [-45.29506, -22.84514], [-45.29711, -22.84257], [-45.29865, -22.83945], [-45.30044, -22.83854], [-45.30293, -22.83804], [-45.31172, -22.83808], [-45.31451, -22.84092], [-45.31631, -22.84444], [-45.32116, -22.84816], [-45.32191, -22.85014], [-45.32145, -22.85091], [-45.31819, -22.85221], [-45.31609, -22.85422], [-45.31579, -22.85585], [-45.31651, -22.85695], [-45.31797, -22.85687], [-45.32149, -22.85514], [-45.32388, -22.85565], [-45.32472, -22.8552], [-45.32531, -22.85453], [-45.32632, -22.84942], [-45.32874, -22.8471], [-45.33163, -22.84576], [-45.33386, -22.84588], [-45.33725, -22.84805], [-45.3378, -22.84798], [-45.34226, -22.85134], [-45.34446, -22.85126], [-45.34614, -22.85194], [-45.34625, -22.85124], [-45.34346, -22.84167], [-45.34212, -22.84004], [-45.33237, -22.83807], [-45.33131, -22.83637], [-45.3322, -22.83531], [-45.32993, -22.83401], [-45.32802, -22.8337], [-45.32736, -22.83247], [-45.3262, -22.83161], [-45.32548, -22.8316], [-45.32382, -22.83367], [-45.32301, -22.83311], [-45.32132, -22.83509], [-45.32052, -22.83387], [-45.32164, -22.83283], [-45.32114, -22.83247], [-45.32246, -22.83051], [-45.31892, -22.83189], [-45.31472, -22.83254], [-45.31225, -22.83105], [-45.31044, -22.82866], [-45.30702, -22.8284], [-45.3043, -22.82721], [-45.30336, -22.82733], [-45.29949, -22.82943], [-45.29683, -22.82948], [-45.29407, -22.82816], [-45.29121, -22.83083], [-45.28814, -22.82865], [-45.2894, -22.82645], [-45.27781, -22.82606], [-45.27554, -22.83281], [-45.27086, -22.82938], [-45.2701, -22.83104], [-45.26864, -22.83271], [-45.2646, -22.8365], [-45.26543, -22.83708]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000055, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 12}, "type": "Feature"}, {"geometry": {"coordinates": [[[-45.26923, -22.82607], [-45.26622, -22.82292], [-45.25843, -22.81898], [-45.25761, -22.81801], [-45.24799, -22.82517], [-45.24644, -22.82319], [-45.24545, -22.81864], [-45.24576, -22.81864], [-45.24496, -22.81855], [-45.24356, -22.81961], [-45.2419, -22.81936], [-45.24102, -22.81973], [-45.24035, -22.82234], [-45.23746, -22.82431], [-45.24863, -22.84167], [-45.24979, -22.83795], [-45.24512, -22.83395], [-45.24889, -22.82974], [-45.25445, -22.8337], [-45.255, -22.83277], [-45.25476, -22.83152], [-45.2554, -22.83056], [-45.25824, -22.82924], [-45.26098, -22.8291], [-45.26292, -22.8307], [-45.26457, -22.82901], [-45.26923, -22.82607]]], "type": "Polygon"}, "properties": {"CD_setor": 354075405000056, "COR": "#111111", "FAIXA_LABEL": "Preto | mais baixa", "NM_BAIRRO": null, "NM_MUN": "potim", "UF_REF": "SP", "VOTOS_CAND": 21}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_86fdfae96139fbc5c098c76334ab7b87.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["UF_REF", "NM_MUN", "NM_BAIRRO", "CD_setor", "VOTOS_CAND", "FAIXA_LABEL"];
+    let aliases = ["UF:", "Munic\u00edpio:", "Bairro:", "Setor:", "Votos:", "Faixa:"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i].toLocaleString()}</th>
+            
+            <td>${handleObject(layer.feature.properties[v]).toLocaleString()}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": false,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_86fdfae96139fbc5c098c76334ab7b87.addTo(map_c86cf50014be6b8549e02a7f05881502);
+        
+    
+            map_c86cf50014be6b8549e02a7f05881502.fitBounds(
+                [[-22.85775, -45.36445], [-22.78869, -45.23746]],
+                {}
+            );
+        
+</script>
+</html>
